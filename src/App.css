@@ -1,0 +1,214 @@
+/* App-specific styles */
+
+/* Ensure smooth scroll behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Hide scrollbar for cleaner look but keep functionality */
+body {
+  overflow-x: hidden;
+}
+
+/* Section pinning styles */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Ensure images don't cause layout shifts */
+.bg-image {
+  will-change: transform, opacity;
+}
+
+/* Headline animation helper */
+.headline-xl span {
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* Product navigator responsive */
+@media (max-width: 1024px) {
+  .product-navigator {
+    display: none !important;
+  }
+}
+
+/* Mobile headline sizing */
+@media (max-width: 768px) {
+  .headline-xl {
+    font-size: clamp(32px, 12vw, 64px) !important;
+  }
+  
+  .hero-headline,
+  .collection-headline,
+  .detail-headline,
+  .accessories-headline,
+  .footwear-headline,
+  .lifestyle-headline {
+    left: 4vw !important;
+    right: 4vw !important;
+    text-align: center !important;
+  }
+  
+  .detail-headline,
+  .footwear-headline {
+    text-align: center !important;
+  }
+}
+
+/* Command bar mobile adjustments */
+@media (max-width: 640px) {
+  .command-bar {
+    left: 2vw;
+    right: 2vw;
+    bottom: 2vh;
+    padding: 10px 16px;
+  }
+}
+
+/* Cart sidebar animation */
+.cart-sidebar {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth image transitions */
+.product-navigator img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effects for interactive elements */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Link hover states */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #FF2D8D;
+  outline-offset: 2px;
+}
+
+/* Input styling */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Prevent text selection on UI elements */
+.command-bar,
+.product-navigator,
+header {
+  user-select: none;
+}
+
+/* Loading state for images */
+img {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure proper z-index stacking */
+.section-pinned {
+  will-change: transform;
+}
+
+/* Collection section panel styling */
+.collection-left,
+.collection-right {
+  will-change: transform, opacity;
+}
+
+/* Footer link hover */
+footer a {
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Newsletter input focus */
+input:focus {
+  box-shadow: 0 0 0 2px rgba(255, 45, 141, 0.2);
+}
+
+/* Menu overlay animation */
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ensure scroll trigger works properly */
+.pin-spacer {
+  pointer-events: none;
+}
+
+.pin-spacer > * {
+  pointer-events: auto;
+}
+
+/* Category Card Styles */
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+.category-card img {
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.1);
+}
+
+.category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.category-card:hover::after {
+  border-color: #FF2D8D;
+}
+
+/* Z-index for categories section */
+.z-25 {
+  z-index: 25;
+}
